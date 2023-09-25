@@ -1829,13 +1829,9 @@ static BOOL _trackedColdRestart = false;
     
     let infoDictionary = [[NSBundle mainBundle] infoDictionary];
     NSString *version = infoDictionary[@"CFBundleShortVersionString"];
-    NSString *build = [[NSBundle mainBundle] objectForInfoDictionaryKey: (NSString *)kCFBundleVersionKey];
-    NSString *appVersion = [NSString stringWithFormat:@"%@.%@", version, build];
-    
     if (version)
-//        userState.gameVersion = version;
-        userState.gameVersion = appVersion;
-   
+        userState.gameVersion = version;
+    
     if ([OneSignalJailbreakDetection isJailbroken])
         userState.isRooted = YES;
     
